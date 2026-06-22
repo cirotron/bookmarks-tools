@@ -78,7 +78,7 @@ python bookmarks-filter.py
 
 1. **Búsqueda** — El script pide el texto a buscar (se aplica sobre el nombre y la URL del favorito).
 2. **Resultados** — Muestra en pantalla todos los favoritos que coinciden.
-3. **Exportación** — Guarda los resultados en `favoritos_filtrados.txt` en el directorio actual.
+3. **Exportación** — Guarda los resultados en `favoritos_filtrados.txt`. Si ese archivo ya existe, crea uno nuevo con timestamp (ej: `favoritos_filtrados_20260622_033500.txt`) para no sobreescribir búsquedas anteriores.
 4. **Eliminación (opcional)** — Pregunta si querés eliminar esos favoritos del navegador.
    - Si respondés **`s`**: hace un backup automático (`Bookmarks.bak`) y borra las coincidencias del archivo original.
    - Si respondés **`n`**: no modifica nada.
@@ -89,7 +89,8 @@ python bookmarks-filter.py
 
 | Archivo | Descripción |
 |---------|-------------|
-| `favoritos_filtrados.txt` | Lista de favoritos encontrados en la última búsqueda |
+| `favoritos_filtrados.txt` | Lista de favoritos de la primera búsqueda |
+| `favoritos_filtrados_YYYYMMDD_HHMMSS.txt` | Búsquedas posteriores (si el archivo base ya existe) |
 | `Bookmarks.bak` | Copia de seguridad del archivo original, creada antes de eliminar |
 
 ---
