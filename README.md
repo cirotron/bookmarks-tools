@@ -23,7 +23,7 @@ Antes de usar el script, verificá que la variable `BOOKMARKS_PATH` apunte al ar
 Abrí `bookmarks-filter.py` y modificá esta línea:
 
 ```python
-BOOKMARKS_PATH = os.path.expanduser(r"~\AppData\Local\BraveSoftware\Brave-Browser\User Data\Default\Bookmarks")
+BOOKMARKS_PATH = os.path.expanduser(r"~\AppData\Local\Google\Chrome\User Data\Default\Bookmarks")
 ```
 
 ### Rutas por navegador

@@ -4,7 +4,7 @@ import shutil
 
 # Cambiá según tu navegador y sistema operativo
 BOOKMARKS_PATH = os.path.expanduser(
-    r"~\AppData\Local\BraveSoftware\Brave-Browser\User Data\Default\Bookmarks"
+    r"~\AppData\Local\Google\Chrome\User Data\Default\Bookmarks"
 )
 EXPORT_FILE = "favoritos_filtrados.txt"
 
