@@ -1,12 +1,15 @@
 import json
 import os
 import shutil
+from datetime import datetime
 
 # Cambiá según tu navegador y sistema operativo
 BOOKMARKS_PATH = os.path.expanduser(
     r"~\AppData\Local\Google\Chrome\User Data\Default\Bookmarks"
 )
 EXPORT_FILE = "favoritos_filtrados.txt"
+EXPORT_FILE_STEM = "favoritos_filtrados"
+EXPORT_FILE_EXT = ".txt"
 
 
 def extract_and_filter(bookmark_node, search_text, results, parents):
@@ -43,11 +46,18 @@ def main():
     for i, (name, url, _, _) in enumerate(results, start=1):
         print(f"{i}. {name}: {url}")
 
+    # Determinar nombre del archivo de exportación
+    if os.path.exists(EXPORT_FILE):
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        export_path = f"{EXPORT_FILE_STEM}_{timestamp}{EXPORT_FILE_EXT}"
+    else:
+        export_path = EXPORT_FILE
+
     # Exportar a archivo
-    with open(EXPORT_FILE, "w", encoding="utf-8") as f:
+    with open(export_path, "w", encoding="utf-8") as f:
         for name, url, _, _ in results:
             f.write(f"{name}: {url}\n")
-    print(f"\n✅ Exportado a {EXPORT_FILE}")
+    print(f"\n✅ Exportado a {export_path}")
 
     # Preguntar si eliminar
     choice = input("\n¿Querés eliminar estos favoritos del navegador? (s/n): ").strip().lower()
